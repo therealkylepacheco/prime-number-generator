@@ -5,10 +5,6 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class InputTest {
     /**
      * isValid
@@ -47,7 +43,7 @@ public class InputTest {
     public void isValid_noArgs() {
         Input input = new Input();
         String[] args = {};
-        assertThat(input.isValid(args), is(true));
+        assertThat(input.isValid(args), is(false));
     }
     @Test
     public void isValid_isDouble() {
@@ -60,5 +56,30 @@ public class InputTest {
         Input input = new Input();
         String[] args = {"-5", "10"};
         assertThat(input.isValid(args), is(false));
+    }
+
+    /**
+     * prepareArgs
+     */
+    @Test
+    public void prepareArgs_standardOrder() {
+        Input input = new Input();
+        String[] args = {"25", "100"};
+        Integer[] bounds = {25, 100};
+        assertThat(input.prepareArgs(args), is(bounds));
+    }
+    @Test
+    public void prepareArgs_inverseOrder() {
+        Input input = new Input();
+        String[] args = {"100", "25"};
+        Integer[] bounds = {25, 100};
+        assertThat(input.prepareArgs(args), is(bounds));
+    }
+    @Test
+    public void prepareArgs_noOrder() {
+        Input input = new Input();
+        String[] args = {"25", "25"};
+        Integer[] bounds = {25, 25};
+        assertThat(input.prepareArgs(args), is(bounds));
     }
 }

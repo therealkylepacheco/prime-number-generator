@@ -72,4 +72,16 @@ public class PNGTest {
         List<Integer> expect = Arrays.asList(7901, 7907, 7919);
         assertThat(png.generate(7900, 7920), is(expect));
     }
+    @Test
+    public void generate_singlePrime() {
+        PNG png = new PNG();
+        List<Integer> expect = Arrays.asList(5);
+        assertThat(png.generate(5, 5), is(expect));
+    }
+    @Test
+    public void generate_singleComposite() {
+        PNG png = new PNG();
+        List<Integer> expect = new ArrayList<>();
+        assertThat(png.generate(8, 8), is(expect));
+    }
 }
