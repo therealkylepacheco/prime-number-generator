@@ -8,6 +8,11 @@ public class PNG implements PrimeNumberGenerator{
         if (value % 2 == 0 && value != 2) {
             return false;
         }
+        for (int i = 3; i < value; i++) {
+            if (value % i == 0) {
+                return false;
+            }
+        }
         return true;
     }
 
