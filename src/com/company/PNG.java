@@ -21,7 +21,7 @@ public class PNG implements PrimeNumberGenerator{
     }
 
     public List<Integer> generate(int startingValue, int endingValue) {
-        List<Integer> primes = new ArrayList<Integer>();
+        List<Integer> primes = new ArrayList<>();
         for (int value = startingValue; value <= endingValue; value++) {
             if (isPrime(value)) {
                 primes.add(value);

@@ -62,7 +62,7 @@ public class PNGTest {
     @Test
     public void generate_emptySet() {
         PNG png = new PNG();
-        List<Integer> expect = new ArrayList<Integer>();
+        List<Integer> expect = new ArrayList<>();
         assertThat(png.generate(62, 66), is(expect));
     }
 
