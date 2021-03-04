@@ -13,7 +13,28 @@ public class Input {
     }
 
     public Integer[] prepareArgs(String[] values) {
-        return null;
+        Integer[] numValues = convertToInt(values);
+        Integer[] orderedValues = checkOrder(numValues);
+        return orderedValues;
+    }
+
+    private Integer[] convertToInt(String[] values) {
+        Integer[] numValues = new Integer[values.length];
+        for (int i = 0; i < values.length; i++) {
+            numValues[i] = Integer.parseInt(values[i]);
+        }
+        return numValues;
+    }
+
+    private Integer[] checkOrder(Integer[] values) {
+        Integer[] orderedValues = new Integer[values.length];
+        if (values[0] > values[1]) {
+            orderedValues[0] = values[1];
+            orderedValues[1] = values[0];
+        } else {
+            return values;
+        }
+        return orderedValues;
     }
 
     private boolean validNum(String[] values) {
