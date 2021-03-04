@@ -49,4 +49,16 @@ public class InputTest {
         String[] args = {};
         assertThat(input.isValid(args), is(true));
     }
+    @Test
+    public void isValid_isDouble() {
+        Input input = new Input();
+        String[] args = {"5.25", "10.9873"};
+        assertThat(input.isValid(args), is(false));
+    }
+    @Test
+    public void isValid_isNegative() {
+        Input input = new Input();
+        String[] args = {"-5", "10"};
+        assertThat(input.isValid(args), is(false));
+    }
 }
