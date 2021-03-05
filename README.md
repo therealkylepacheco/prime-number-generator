@@ -3,6 +3,7 @@ Prime number generator in Java
 
 ## Description
 This is a basic prime number generator written in Java. It was developed in IntelliJ through TDD with JUnit. 
+
 *Note: This was developed using openJDK 11*
 
 ## Usage
