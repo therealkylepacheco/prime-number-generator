@@ -1,5 +1,3 @@
-package com.company;
-
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -25,6 +23,12 @@ public class InputTest {
     public void isValid_isNotNum_Symbol() {
         Input input = new Input();
         String[] args = {"~!@#$%", "&*()_+=-"};
+        assertThat(input.isValid(args), is(false));
+    }
+    @Test
+    public void isValid_isNotNum_AlphaAndNum() {
+        Input input = new Input();
+        String[] args = {"abc", "15"};
         assertThat(input.isValid(args), is(false));
     }
     @Test

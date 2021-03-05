@@ -1,5 +1,3 @@
-package com.company;
-
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -17,7 +15,7 @@ public class OutputTest {
     public void print_resultSet() {
         Output output = new Output();
         List<Integer> list = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23);
-        String printable = "2\n3\n5\n7\n11\n13\n17\n19\n23\n";
+        String printable = "\n2\n3\n5\n7\n11\n13\n17\n19\n23\n";
         assertThat(output.print(list), is(printable));
     }
     @Test
