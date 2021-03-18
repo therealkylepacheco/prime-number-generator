@@ -61,6 +61,12 @@ public class InputTest {
         String[] args = {"-5", "10"};
         assertThat(input.isValid(args), is(false));
     }
+    @Test
+    public void isValid_Overflow() {
+        Input input = new Input();
+        String[] args = {"10", "9999999999"};
+        assertThat(input.isValid(args), is(false));
+    }
 
     /**
      * prepareArgs
