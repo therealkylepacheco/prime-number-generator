@@ -11,7 +11,6 @@ public class Input {
     public boolean isValid(String[] values){
 
             if (!validArgNum(values) || !validNum(values)) {
-                //kdp
                 return false;
             }
             return true;
