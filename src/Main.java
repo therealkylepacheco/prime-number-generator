@@ -7,11 +7,19 @@ public class Main {
         Input inputHandler      = new Input();
         Output outputHandler    = new Output();
         PNG png                 = new PNG();
+        UserPrompt userPrompt   = new UserPrompt();
 
-        if(inputHandler.isValid(args)) {
-            Integer[] numValues = inputHandler.prepareArgs(args);
-            List<Integer> resultSet = png.generate(numValues[0], numValues[1]);
-            System.out.println(outputHandler.print(resultSet));
+        boolean cont = true;
+
+        while(cont) {
+            if (inputHandler.isValid(args)) {
+                Integer[] numValues = inputHandler.prepareArgs(args);
+                List<Integer> resultSet = png.generate(numValues[0], numValues[1]);
+                System.out.println(outputHandler.print(resultSet));
+                cont = false;
+            } else {
+                args = userPrompt.prompt();
+            }
         }
     }
 }
