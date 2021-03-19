@@ -1,6 +1,7 @@
 public class Input {
 
     private final String INVALID_MSG = "Invalid input: must enter 2 positive integers";
+    private final String OVERFLOW_MSG = "Invalid input: input value overflowed int";
 
     /**
      * Check if values provided by user are valid
@@ -8,8 +9,8 @@ public class Input {
      * @return boolean
      */
     public boolean isValid(String[] values){
+
             if (!validArgNum(values) || !validNum(values)) {
-                System.out.println(INVALID_MSG);
                 return false;
             }
             return true;
@@ -65,6 +66,11 @@ public class Input {
                 temp = Integer.parseInt(values[i]);
                 if (temp < 0) return false;
             } catch (NumberFormatException e) {
+                if (values[i].matches("[0-9]+")) {
+                    System.out.println(OVERFLOW_MSG);
+                } else {
+                    System.out.println(INVALID_MSG);
+                }
                 return false;
             }
         }
@@ -77,7 +83,10 @@ public class Input {
      * @return boolean
      */
     private boolean validArgNum(String[] values) {
-        if (values.length != 2) return false;
-        else return true;
+        if (values.length != 2) {
+            System.out.println(INVALID_MSG);
+            return false;
+        }
+        return true;
     }
 }
